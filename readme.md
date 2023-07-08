@@ -1,0 +1,28 @@
+# Django项目
+## 1、私人书馆项目
+ ### 一、项目介绍
+
+基于天天生鲜进行更改的私人书馆项目
+ 未进行深层次的改进，通过基础项目进行改进
+
+### 二、使用说明
+
+- 1、生成 requirements.txt 文件：pip freeze>requirements.txt
+
+- 2、导入所有需要的包：pip install -r requirements.txt
+
+- 3、改配置、创建数据库
+
+- 4、数据迁移：就是把项目的数据库的表、字段什么的在自己电脑上刻个模子，迁移过来。
+
+​			**python manage.py makemigrations**（然后解决报错）
+
+​			makemigrations会在当前目录下生成一个migrations文件夹
+
+- 5、python manage.py migrate
+
+​			migrate就是执行之前生成的migrations文件，这一步才是操作数据库的一步
+
+​			Django每次更新模型都需要执行4、5两步
+
+- 6、启动项目：python manage.py runserver或者改manage里的参数为runserver

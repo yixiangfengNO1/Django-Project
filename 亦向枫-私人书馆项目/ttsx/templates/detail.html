@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>{{ goods_data.goods_name }}-书籍详情</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+{#    <script src="/static/js/jquery-ui.min.js"></script>#}
+<script src="/static/js/jquery.js"></script>
+</head>
+<body>
+	<div class="search_bar clearfix">
+		<a href="/index/" class="logo fl"><img src="/static/images/image(1).png"></a>
+		<div class="guest_cart fr">
+			<a href="/cart/show_cart/" class="cart_name fl">我的书包</a>
+            <div class="goods_count fl">{{ cart_goods_count }}</div>
+
+			<ul class="cart_goods_show">
+
+
+                {% for cart_goods in cart_goods_list %}
+				<li>
+					<img src="/static/goods/{{ cart_goods.goods_img }}.jpg" alt="商品图片">
+					{{ cart_goods.goods_name }}
+					<div>{{ cart_goods.goods_num }}</div>
+				</li>
+                {% endfor %}
+
+			</ul>
+
+		</div>
+	</div>
+
+	<div class="navbar_con">
+		<div class="navbar clearfix">
+			<div class="subnav_con fl">
+				<h1>全部书籍分类</h1>
+				<span></span>			
+				<ul class="subnav">
+                    {% for cag in categories %}
+                        <li><a href="/goods/?cag={{ cag.id }}&page=1" class="{{ cag.cag_css }}">{{ cag.cag_name }}</a></li>
+                    {% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="breadcrumb">
+		<a href="#">全部分类</a>
+		<span>></span>
+		<a href="#">{{ goods_data.goods_cag.cag_name }}</a>
+		<span>></span>
+		<a href="#">书籍详情</a>
+	</div>
+
+	<div class="goods_detail_con clearfix">
+		<div class="goods_detail_pic fl"><img src="/static/goods/{{ goods_data.goods_img }}.jpg" width="200px" height="300px"></div>
+
+		<div class="goods_detail_list fr">
+			<h3>{{ goods_data.goods_name }}</h3>
+			<br>
+			<div class="prize_bar">
+				<span class="show_pirze">¥<em>{{ goods_data.goods_price }}</em></span>
+			</div>
+			<div class="goods_num clearfix">
+				<div class="num_name fl">数 量：</div>
+				<div class="num_add zj">
+                    <input type="button" id="minus" value="-">
+					<input type="text" class="num_show" id="num" value="1">
+                    <input type="button" id="plus" value="+">
+				</div> 
+			</div>
+			<div class="operate_btn">
+				<a onclick="set()" href="/cart/add_cart/?id={{ goods_data.id }}" class="add_cart" id="add_cart">加入书包</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="main_wrap clearfix">
+			<ul class="detail_tab clearfix">
+				<li class="active">书籍介绍</li>
+			</ul>
+
+			<div class="tab_content">
+				<dl>
+					<dd>{{ goods_data.goods_name }}</dd>
+				</dl>
+			</div>
+	</div>
+
+	<div class="footer">
+		<div class="foot_link">
+			<a href="#">关于我们</a>
+			<span>|</span>
+			<a href="#">联系我们</a>
+			<span>|</span>
+			<a href="#">招聘人才</a>
+			<span>|</span>
+			<a href="#">友情链接</a>		
+		</div>
+		<p>CopyRight © 2016 林川成书馆 All Rights Reserved</p>
+		<p>电话：010-****888    京ICP备*******8号</p>
+	</div>
+	<script>
+        $("#plus").click(function(){
+        var num = $("#num").val();
+        num++;
+        $("#num").val(num);
+    });
+    $("#minus").click(function(){
+        var num = $("#num").val();
+        if(num > 1){
+            num--;
+            $("#num").val(num);
+        }
+    });
+    function set(){
+
+   var a =$("#add_cart").attr("href",'/cart/add_cart/?id={{ goods_data.id }}&value='+$("#num").val());
+        console.log(a);
+        return;
+    }
+    </script>
+</body>
+</html>
