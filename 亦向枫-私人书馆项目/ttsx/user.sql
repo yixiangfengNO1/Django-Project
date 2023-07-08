@@ -1,0 +1,10 @@
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (1, 'admin', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (2, 'admin1', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (3, 'admin2', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (4, '123456', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (5, 'admin3', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (6, 'admin4', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (7, 'admin6', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (8, '132517', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (9, '14789', '123456', '3021615987@qq.com');
+INSERT INTO `user`(`id`, `username`, `password`, `email`) VALUES (10, 'admin8', '123456', '3021615987@qq.com');
