@@ -1,0 +1,46 @@
+{% extends "mobile/base.html" %}
+
+{% block mainbody %}
+    <!--头部-->
+    <header>
+        <div class="header">
+            <h1>切换店铺</h1>
+            <a href="{% url 'mobile_index' %}" class="return"><i></i></a>
+        </div>
+    </header>
+
+    <!--内容区-->
+    <article class="main-container">
+
+        <!--产品-->
+        <div class="list-content cartlist order-Pro">
+            <ul>
+                {% for vo in shoplist %}
+                    <li class="line select">
+                        <a href="{% url 'mobile_selectshop' %}?sid={{ vo.id }}">
+                            <div class="pro-img"><img src="/static/uploads/shop/{{ vo.cover_pic }}" alt=""></div>
+                            <div class="pro-con"><h3>{{ vo.name }}</h3>
+                                <p>电话：{{ vo.phone }}</p>
+                                <p>{{ vo.address }}</p></div>
+                        </a>
+                    </li>
+                {% endfor %}
+                <!--
+                <li class="line select">
+                    <a href="{% url 'mobile_index' %}">
+                    <div class="pro-img"><img src="/static/mobile/img/12341234.jpg" alt=""></div>
+                    <div class="pro-con"><h3>田老师红烧肉-朝阳将台路店</h3><p>电话：12345678906</p><p>北京市朝阳区将台乡东八间房村西临8号</p></div>
+                    </a>
+                </li>
+                <li class="line select">
+                    <a href="{% url 'mobile_index' %}">
+                    <div class="pro-img"><img src="/static/mobile/img/12341234.jpg" alt=""></div>
+                    <div class="pro-con"><h3>田老师红烧肉-朝阳将台路店</h3><p>电话：12345678906</p><p>北京市朝阳区将台乡东八间房村西临8号</p></div>
+                    </a>
+                </li>
+                -->
+            </ul>
+        </div>
+
+    </article>
+{% endblock %}
